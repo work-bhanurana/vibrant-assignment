@@ -12,6 +12,14 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-6 active-purple-4 mb-4">
+            <input class="form-control" [(ngModel)]="search" type="number" placeholder="Search" aria-label="Search">
+        </div>
+        <div class="col-sm-6 active-purple-4 mb-4">
+            <a class="btn btn-success" (click)="searchUser()"> <span>Search User</span></a>
+        </div>
+    </div>
     <div class="card">
         <table class="table table-striped">
             <thead class="thead-light">
@@ -30,8 +38,9 @@
                     <td class="text-center">{{user.last_name}}</td>
                     <td class="text-center">{{user.email}}</td>
                     <td class="text-center">
-                        <a class="add icon-margin li-pointer" title="edit" data-toggle="tooltip" (click)="update(user)"><i class="bi bi-pencil-square "></i></a>
-                        <a class="delete li-pointer" title="Delete " data-toggle="tooltip" (click)="open(content, user)"><i class="bi bi-trash "></i></a>
+                        <a class="add icon-margin li-pointer" [routerLink]="['/users', user.id]" title=" edit " data-toggle="tooltip "><i class="bi bi-eye-fill "></i></a>
+                        <a class="add icon-margin li-pointer " title="edit " data-toggle="tooltip " (click)="update(user) "><i class="bi bi-pencil-square "></i></a>
+                        <a class="delete li-pointer " title="Delete " data-toggle="tooltip " (click)="open(content, user) "><i class="bi bi-trash "></i></a>
                     </td>
                 </tr>
 
@@ -42,7 +51,7 @@
                 <ul class="pagination ">
                     <li class="page-item " (click)="prev() "><a class="page-link li-pointer " [ngClass]="{ 'my_class': data?.page <=1 } ">Previous</a></li>
                     <li class="page-item li-pointer " *ngFor="let num of numSequence(numbers); let i=index " (click)="getUserList(i+1) ">
-                        <a class="page-link">{{i+1}}</a>
+                        <a class="page-link ">{{i+1}}</a>
                     </li>
                     <li class="page-item " (click)="next() "><a class="page-link li-pointer " [ngClass]="{ 'my_class': data?.page=== data?.total_pages} ">Next</a></li>
                 </ul>
@@ -53,13 +62,13 @@
 
 <ng-template #content let-modal>
 
-    <div class="modal-body">
+    <div class="modal-body ">
         Are You Sure ?
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-success" (click)="modal.close('confirm')">Confirm</button>
-        <button type="button" class="btn btn-danger" (click)="modal.close('cancel')">Cancel</button>
+    <div class="modal-footer ">
+        <button type="button " class="btn btn-success " (click)="modal.close( 'confirm') ">Confirm</button>
+        <button type="button " class="btn btn-danger " (click)="modal.close( 'cancel') ">Cancel</button>
     </div>
 </ng-template>
 
-<!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+<!-- <button class="btn btn-lg btn-outline-primary " (click)="open(content) ">Launch demo modal</button> -->

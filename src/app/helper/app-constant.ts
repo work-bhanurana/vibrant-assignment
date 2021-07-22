@@ -13,6 +13,7 @@ export const createUser = "users";
 export const updateUser = "users/";
 
 export const deleteUser = "users/";
+export const getUser = "users/";
 
 export const customNotifierOptions: NotifierOptions = {
     position: {

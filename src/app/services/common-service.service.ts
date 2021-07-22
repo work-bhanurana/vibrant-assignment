@@ -40,7 +40,10 @@ export class CommonService {
     const url = `${appConstant.baseUrl}${appConstant.updateUser}${user.id}`;
     return this.http.put(url, user);
   }
-
+  getUser(id: number) {
+    const url = `${appConstant.baseUrl}${appConstant.getUser}${id}`;
+    return this.http.get(url);
+  }
   notify(type: string, message: string) {
     this.notifier.notify(type, message);
   }

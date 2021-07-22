@@ -14,6 +14,7 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 export class UserListComponent implements OnInit {
   data: any;
   numbers: number = 0;
+  search: number;
   constructor(private commonUtil: CommonService, private router: Router, private modalService: NgbModal) {
     this.getUserList(1);
   }
@@ -86,6 +87,10 @@ export class UserListComponent implements OnInit {
     else {
       return `with: ${reason}`;
     }
+  }
+
+  searchUser() {
+    this.router.navigate(['users/', this.search]);
   }
 
 }
