@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h2>Update User</h2>
+                </div>
+                <!-- <div class="col-sm-6">
+                    <a class="btn btn-success" (click)="craeteUser()"> <span>Create User</span></a>
+                    <a class="btn btn-danger"> <span>Delete</span></a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="row padding mb-2">
+            <div class="col-sm-6 col-md-6">
+                <input type="text" class="form-control" formControlName="first_name" id="floatingInput" placeholder="First name" [ngClass]="{ 'is-invalid': submitted && f.first_name.errors }">
+                <div *ngIf="f.first_name.invalid && (f.first_name.dirty || f.first_name.touched)" class="alert">
+                    <div *ngIf="f.first_name.errors.required" class="text-danger">
+                        First Name is required
+                    </div>
+                    <div *ngIf="f.first_name.errors?.minlength" class="text-danger">
+                        First Name minimum length 4
+                    </div>
+                </div>
+            </div>
+
+            <div class=" col-sm-6 col-md-6">
+                <input type="text" class="form-control" formControlName="last_name" id="floatingInput" placeholder="Last Name" [ngClass]="{ 'is-invalid': submitted && f.last_name.errors }">
+                <div *ngIf="f.last_name.invalid && (f.last_name.dirty || f.last_name.touched)" class="alert">
+                    <div *ngIf="f.last_name.errors.required" class="text-danger">
+                        Last Name is required
+                    </div>
+                    <div *ngIf="f.last_name.errors?.minlength" class="text-danger">
+                        Last Name minimum length 4
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row padding mb-2">
+            <div class="col-sm-6 col-md-6">
+                <input type="text" class="form-control" formControlName="email" id="floatingInput" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+
+                <div *ngIf="f.email.invalid && (f.email.dirty || f.email.touched)" class="alert">
+                    <div *ngIf="f.email.errors.required" class="text-danger">
+                        Email is required
+                    </div>
+                    <div *ngIf="f.email.errors?.email" class="text-danger">
+                        Invalid Email
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-success col-12"> <span>Update</span></button>
+            </div>
+
+        </div>
+    </form>
+
+</div>
